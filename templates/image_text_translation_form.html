@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Text Translation</title>
+</head>
+<body>
+    <h1>Upload an Image for Text Translation</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="images">Select an image or PDF file:</label>
+        <input type="file" name="images" id="images" accept="image/*, .pdf" required><br><br>
+        <!-- Add more form fields or submit button as needed -->
+
+        <label for="target_language">Select target language:</label>
+        <select id="target_language" name="target_language">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="de">German</option>
+            <option value="te">Telugu</option>
+        </select><br><br>
+        
+        <input type="submit" value="Translate">
+    </form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Highlight Text</title>
+</head>
+<body>
+  <label for="textInput">Enter text to highlight: </label>
+  <input type="text" id="textInput">
+  <p id="highlightedText">This is a sample paragraph. Enter text above to highlight it.</p>
+
+  <script>
+    document.getElementById('textInput').addEventListener('input', function() {
+        const inputText = this.value.toLowerCase(); // Convert input to lowercase for case-insensitive search
+        const paragraph = document.getElementById('highlightedText');
+        const text = paragraph.textContent.toLowerCase(); // Convert paragraph text to lowercase for case-insensitive search
+      
+        const highlightedText = text.replace(new RegExp(inputText, 'g'), match => `<span style="background-color: yellow">${match}</span>`);
+
+        paragraph.innerHTML = highlightedText;
+      });
+      
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "studydrive-409006",
+  "private_key_id": "9ebd896f86306c472246d9535656fca3297cbd5b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDfNCBFvbcCPW5G\nznkxYXJtcTtmlTpyxQiPI4l4uDJ/XhvrZ/20SgW0odTUW1oV2HFxNPOXPqAvVaoT\n2G+vpAzynxrJMY3AbP3MBhRVyge8/1AOG+BMNMQSKJ81oTf7zoFpzFrMIvzgOLaP\nGdLa6jh8XLUDqWj8/UiimHrGYDjDlMRJDn3tOK/Q6GMSoKCzeLzk89iSdBG58N3I\nibdpq9kuyWbatSuDMOX2eJ97NVJFnh1/JgV3kEJwkUjsgg3tseOLJSKD+i6jpPYv\nKmkdqCMN+akxz2WDzCxhIj+PI7is2q5R+RvQAVQ/o0d7mbofQJcx6+4GFjUOXBoJ\nf6ZHVVBDAgMBAAECggEAU+t00NPmGY0AR9X8ohDZ5YUjyMuFuL4VHEBHwSA8OEAp\nbiZgsKb+Iy6PZzJbmggRivdWOMDemD10n1aKk3ayOYyRlSCxA67W8507iw/VPf2e\nW1emyvAx4gPs7EyL0HyRkrY3UzY6bpFULlSOvyk+CKAQnOpWo3wVkbCTxL9LyFiU\ndYT6y996O/hBml64+5kYAqsxAGZp8SZsi+kmZVQEElkfBdR5rFCXdY4aEslrZnYv\nKle9woV34Shgf/L8XLoVYWD4pZ1KFOIXkR2twxoGVRfgEpYTFgV4hDKkLeOByCjH\nZPDy4wDGIX7XHm0Um2JkNbwWHxEWK6fGgSPku5YQSQKBgQDztfPq11Ta7R0PPKal\nLVQYxBp8lQZO9w+dp5tOUyUgW993PRky87TEaQ+plFlEe78r+HtKiG74/A77Ud4h\nrDf9066vCAn4Cu3UI6PiImB15mKpCFBGEaYSaoOlnb5EXPiGmG9q+bTMAoeERU/O\noyN3+yguAT5L4FWkI+eUzojtqQKBgQDqdXKpub0EBEWIM8oVboxKMzx3nUqUJ1tu\n2KZzSREAL1Splh+sEMXkmKPrR6BkCucGbI3bZJ8Simbo7BU99K74cFFQXfiEfpWP\nZtSG5pYl8Mnu1T4BZ2kqI01+GVtxQCnjYt2s3m1PMWJiICREsZqFYHRIdhiZFdws\njG7pdmaKCwKBgQDVGjNRFD00ucWBP02QfZRdm4x1h3HetpZHCvn4gSejpfI/N4PD\nU+qrHBr/86IjCfneHwbf43D18qG/DJUp6IeFQgYrMuJUrGnN5+Qzpk+miG+Y0pYu\nztvimpTGyqpG6Oy/9KboabS39zY8aMciLvCix1EY+SlZ+62nO2YSbo65EQKBgQDm\nsfvJ/yV5304fb34HSogltnZn58/rKTKxReG6DAn7WZb/auTtJG/jt0GLDyZFaeja\nDFQkrMRMtPv/cdSQ6sKDV9jasCwJCpjUykSSHC9fU6cOJqplLUBwIt5sFj1AmPbe\nc3hVUWLTCm+Yx7GIGg1F8ZtZdUJM1xKWjvPPKh5I8wKBgQCaUyB2zQJ8Q8FEL9Qz\n+THyHsFG4ZTjAJPDn0Hoqp3kfF73hEcOAsb+j+/vVZjpj+c7cEAMT1Kyvr9TQGQI\nH2Igq9r7xGWWZpgQBAfOpZHADP4iAkxUvbkzgQvlHu8w78XDEVoFr2icKMA/I9iL\noo2vZNEt6i7CbipBxfOZALhQxQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "ocrintegration@studydrive-409006.iam.gserviceaccount.com",
+  "client_id": "105397420792503849176",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ocrintegration%40studydrive-409006.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

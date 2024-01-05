@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text-to-Speech</title>
+  <style>
+    #text span {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p id="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi ipsum earum ipsa sapiente suscipit accusamus sint labore, dicta nobis corporis atque exercitationem nisi nihil vitae neque debitis non modi sit.</p>
+    <button type="button" onclick="toggleReadAloud()">Play/Pause</button>
+    <button type="button" onclick="stopReadAloud()">Stop</button>
+  </div>
+
+  <script>
+    let speechSynthesis;
+    let isReading = false;
+    let paused = false;
+    let pausedIndex = 0;
+    let utterance;
+
+    function toggleReadAloud() {
+      if (!isReading) {
+        if (paused) {
+          resumeReadAloud();
+        } else {
+          startReadAloud();
+        }
+      } else {
+        pauseReadAloud();
+      }
+    }
+
+    function startReadAloud() {
+      let textToSpeak = document.getElementById("text").textContent;
+      speechSynthesis = window.speechSynthesis;
+      utterance = new SpeechSynthesisUtterance(textToSpeak);
+
+      pausedIndex = 0;
+
+      utterance.addEventListener("boundary", function(event) {
+        if (event.name === "word") {
+          pausedIndex = event.charIndex;
+          localStorage.setItem("pausedIndex", pausedIndex);
+          highlightText(pausedIndex);
+        }
+      });
+
+      utterance.addEventListener("end", function() {
+        isReading = false;
+        paused = false;
+        localStorage.removeItem("pausedIndex");
+        clearHighlight();
+      });
+
+      utterance.text = textToSpeak.substring(pausedIndex);
+      speechSynthesis.speak(utterance);
+      isReading = true;
+      paused = false;
+    }
+
+    function pauseReadAloud() {
+      if (speechSynthesis) {
+        speechSynthesis.pause();
+        paused = true;
+        isReading = false;
+      }
+    }
+
+    function resumeReadAloud() {
+      if (speechSynthesis) {
+        speechSynthesis.resume();
+        isReading = true;
+        paused = false;
+      }
+    }
+
+    function stopReadAloud() {
+      if (speechSynthesis) {
+        speechSynthesis.cancel();
+        isReading = false;
+        paused = false;
+        localStorage.removeItem("pausedIndex");
+        clearHighlight();
+      }
+    }
+
+    function highlightText(index) {
+      let textElement = document.getElementById("text");
+      let text = textElement.textContent;
+      let highlightedText = text.slice(0, index);
+      highlightedText += `<span>${text.slice(index, text.length)}</span>`;
+      textElement.innerHTML = highlightedText;
+    }
+
+    function clearHighlight() {
+      let textElement = document.getElementById("text");
+      textElement.innerHTML = textElement.textContent;
+    }
+
+    window.addEventListener('beforeunload', function(event) {
+      stopReadAloud();
+    });
+
+    // Check if there's a paused state on page load and resume playback
+    window.addEventListener('load', function() {
+      if (localStorage.getItem("pausedIndex")) {
+        toggleReadAloud();
+      }
+    });
+  </script>
+</body>
+</html>

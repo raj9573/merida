@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multilingual Dictionary</title>
+</head>
+<body>
+    <h1>Multilingual Dictionary</h1>
+
+    <label for="searchTerm">Enter Word:</label>
+    <input type="text" id="searchTerm" placeholder="Enter a word">
+    <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <!-- Add more language options -->
+    </select>
+    <button onclick="searchDictionary()">Search</button>
+
+    <p id="result"></p>
+
+    <script>
+        async function searchDictionary() {
+            const searchTerm = document.getElementById('searchTerm').value;
+            console.log(searchTerm)
+            const selectedLanguage = document.getElementById('languageSelect').value;
+            
+            // Call Google Translate API to translate the word to English
+            const translationResponse = await fetch(`https://translation.googleapis.com/language/translate/v2?key=AIzaSyD0SL7X09mgSe8KiBAG0PiltrmUPkUWibUs&q=${searchTerm}&target=en&source=${selectedLanguage}`);
+            console.log(translationResponse.json())
+
+            const translationData = await translationResponse.json();
+            const translatedWord = translationData.data.translations[0].translatedText;
+            console.log(translatedWord)
+            // Call WordsAPI to get the definition of the translated word
+            const wordsApiResponse = await fetch(`https://wordsapiv1.p.rapidapi.com/words/${translatedWord}`, {
+                headers: {
+                    'x-rapidapi-key': 'YOUR_WORDSAPI_KEY',
+                    'x-rapidapi-host': 'wordsapiv1.p.rapidapi.com'
+                }
+            });
+            const wordsApiData = await wordsApiResponse.json();
+            const wordDefinition = wordsApiData.results ? wordsApiData.results[0].definition : 'Definition not found';
+            
+            document.getElementById('result').textContent = `Translated Word: ${translatedWord}, Definition: ${wordDefinition}`;
+        }
+    </script>
+</body>
+</html>
